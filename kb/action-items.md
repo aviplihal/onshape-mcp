@@ -1,0 +1,41 @@
+# Action items
+
+Things sessions said need to be built, fixed or decided. Tick `[x]` and add the commit when done. Kinds: tool, bug, feature, data, docs, question.
+- [x] [tool] Add export_dxf (sketch.saveAsDXF) so laser-cut plates can be exported for the laser and the aluminum service. — from 2026-10-21 cf04c090 — done 2026-10-21 (tools v2): export_dxf
+- [x] [tool] insert_part with a target axis/point, or place_cots(sku, axis_point, axis_dir, flip), so goBILDA parts land on a shaft without hand-computed transforms — from 2026-10-20 ea0092a5 — done 2026-10-21 (tools v2): insert_part/move_occurrence on_axis + main_axis
+- [x] [tool] stack_on_shaft(shaft, parts, gaps) for the common FTC shaft stack (bearing, gear, pulley, collar) — from 2026-10-20 ea0092a5 — done 2026-10-21 (tools v2): stack_on_shaft
+- [x] [tool] move_to_component(bodies|occurrences, target) that keeps body names and isGroundToParent — from 2026-10-20 ea0092a5 — done 2026-10-21 (tools v2): move_to_component
+- [x] [feature] create_as_built_joint on a named axis, and create_rigid_group on nested occurrences — from 2026-10-20 ea0092a5 — done 2026-10-21 (tools v2): create_as_built_joint axis; rigid groups already took nested paths
+- [x] [feature] check_interference scope (root/sub-assembly bodies), group by part, ignore overlaps inside one part — from 2026-10-20 ea0092a5 — done 2026-10-21 (tools v2): check_interference scope/ignore_same_part/group_by_part
+- [x] [tool] sweep_joint(joint, from, to, steps) running interference at each step — from 2026-10-20 ea0092a5 — done 2026-10-21 (tools v2): sweep_joint
+- [x] [bug] list_components and list_joints pass the 30 s timeout on a 335-occurrence assembly; add a lean mode or a longer timeout — from 2026-10-20 ea0092a5 — done 2026-10-21 (tools v2): list_components fields, list_joints lean, per-call timeout ≤120 s
+- [x] [data] per-SKU goBILDA geometry facts (axial length, hub/flange end, bore orientation), filled on first import — from 2026-10-20 ea0092a5 — done 2026-10-21 (tools v2): kb/parts/geometry.json written by insert_part, shown by kb_find_part
+- [ ] [data] enter the tolerance-test results (REX clearance, bearing pockets, min wall) into kb/design_rules.md — from 2026-10-20 ea0092a5
+- [x] [question] is the goBILDA 1611 14 mm flanged bearing rated for ~18,000 rpm (counter-roller speed at a 3000 rpm flywheel)? — from 2026-10-20 ea0092a5 — answered 2026-10-21: no, but the motor is geared down, so the rollers never reach that speed
+- [x] [question] Axon MAX body dimensions — no STEP; the outline in Shooter Parts is assumed — from 2026-10-20 ea0092a5 — done 2026-10-21: kb/parts/axon-servos.md; goBILDA has STEPs for both (2004-0025-0001/-0002)
+- [ ] [question] rotate the Onshape API keys that were pasted in a chat (still listed in the plan). — from 2026-10-20 f1bb3466
+- [ ] [feature] render_view could return a clear error when Fusion is backgrounded or the display is asleep, instead of timing out. — from 2026-10-20 f1bb3466
+- [ ] [tool] data-panel tools (list_data_files, create_data_folder, move_data_files) with batching built in, so cloud-file cleanup doesn't need hand-written execute_code and a socket loop — from 2026-10-21 299486f8
+- [ ] [feature] let extrude/revolve/fillet/circular_pattern take an expression string and pattern features, not just bodies — from 2026-10-21 7093af6d
+- [x] [bug] Claude.md was emptied by `open(p,'w').write(f(open(p).read()))` in 09591506 (the write-open truncates before the read); restored from HEAD, lost lesson re-added as #24 — from 2026-10-21 7093af6d
+- [ ] [bug] extrude negative was symmetric — fixed in addon (needs commit) — from 2026-10-21
+- [ ] [bug] export_step fails on bodies — from 2026-10-21
+- [ ] [tool] project curves from another sketch — from 2026-10-21
+- [ ] [tool] delete_body and delete rigid groups — from 2026-10-21
+- [ ] [feature] create_component ground_to_parent option — from 2026-10-21
+- [ ] [question] user to delete old 'Hood Arm L' body and save Shooter Parts — from 2026-10-21
+- [ ] [question] user deletes old 'Hood Arm L' and 'Hood Arm R' bodies — from 2026-10-21
+- [ ] [data] user makes herringbone 32T/16T MOD1 8 mm (idler fused with 59T pulley) for the drive-side restack — from 2026-10-21
+- [ ] [tool] delete_body — from 2026-10-21
+- [ ] [feature] list model parameters / edit feature extents — from 2026-10-21
+- [ ] [tool] wrap herringbone_gear.py as an MCP tool (create_herringbone_gear) — from 2026-10-21
+- [ ] [tool] delete_body (removeFeatures) — from 2026-10-21
+- [ ] [bug] move_occurrence relative/re-insert misplaces nested occurrences in parametric docs (lands at T⁻¹·M, hub went to x 8.8–11.2, pinion to x 8.3–11.7) — from 2026-10-22
+- [ ] [bug] sweep_joint includes hidden occurrences (Obsolete) and rejects a timeout param — from 2026-10-22
+- [ ] [bug] insert_part on_axis into a nested parent landed ~15 cm off (2920 collar) — from 2026-10-22
+- [ ] [feature] audit_shaft_stacks should flag end-of-shaft parts with nothing outboard (94T, 16Ts) and include small pins — from 2026-10-22
+- [ ] [feature] motion links (servo pinion ↔ hood, idler chain) so sweeps don't report tooth artifacts — from 2026-10-22
+- [ ] [tool] rename duplicate joint names / clean leftover joints on obsolete parts (root 'Revolute 8' now on hidden Component7:1) — from 2026-10-22
+- [ ] [bug] delete_feature on a group reported "ungrouped" once while the group stayed (a second call worked, count 8->9); re-check timelineGroups after deleteMe(False) and report failure — from 2026-10-23 smoke test
+- [ ] [feature] move_occurrence in parametric designs adds 2 timeline items per move (CopyPaste + RemoveInstance); prefer joints or a body Move feature for repeated moves, or collapse them — from 2026-10-23 smoke test
+- [ ] [feature] reorder/edit/delete can't address features inside a collapsed group by name (known gap) — from 2026-10-23 smoke test

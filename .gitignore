@@ -102,3 +102,10 @@ htmlcov/
 # OS
 .DS_Store
 /eval/
+
+# knowledge base (generated / local)
+kb/.index.sqlite
+kb/parts/.cache/
+kb/ingest/drafts/
+kb/designs/*/chats/
+kb/_pending/

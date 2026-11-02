@@ -11,6 +11,7 @@ from dotenv import load_dotenv
 from mcp.server import Server
 from mcp.server.stdio import stdio_server
 from mcp.types import Tool, TextContent, ImageContent
+import mcp.types as types
 from loguru import logger
 
 # Load environment variables from .env file before local imports read them.
@@ -19,6 +20,10 @@ _package_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 load_dotenv(os.path.join(_package_dir, ".env"))
 
 from .api.client import OnshapeClient, OnshapeCredentials
+from .kb_design import PROMPTS as KB_PROMPTS
+from .kb_design import RESOURCES as KB_RESOURCES
+from .kb_design import read_kb_resource, subsystem_prompt, whole_robot_prompt
+from .kb_tools import call_kb_tool, get_kb_tool_list, is_kb_tool
 from .api.partstudio import PartStudioManager
 from .api.variables import VariableManager
 from .api.documents import DocumentManager
@@ -179,9 +184,8 @@ describe_manager = DescribeManager(client)
 custom_feature_manager = CustomFeatureManager(client)
 
 
-@app.list_tools()
-async def list_tools() -> list[Tool]:
-    """List available MCP tools."""
+async def _onshape_tool_list() -> list[Tool]:
+    """The Onshape tools (the knowledge-base tools are added in list_tools)."""
     return [
         Tool(
             name="create_sketch_rectangle",
@@ -2780,9 +2784,8 @@ async def _create_mate(
     )
 
 
-@app.call_tool()
-async def call_tool(name: str, arguments: Any) -> list[TextContent | ImageContent]:
-    """Handle tool calls."""
+async def _call_onshape_tool(name: str, arguments: Any) -> list[TextContent | ImageContent]:
+    """Handle Onshape tool calls."""
 
     if name == "create_sketch_rectangle":
         try:
@@ -5239,6 +5242,67 @@ async def call_tool(name: str, arguments: Any) -> list[TextContent | ImageConten
 
     else:
         raise ValueError(f"Unknown tool: {name}")
+
+
+@app.list_tools()
+async def list_tools() -> list[Tool]:
+    """List available MCP tools: Onshape plus the knowledge base."""
+    return await _onshape_tool_list() + get_kb_tool_list()
+
+
+@app.call_tool()
+async def call_tool(name: str, arguments: Any) -> list[TextContent | ImageContent]:
+    """Knowledge-base tools run here; everything else goes to Onshape."""
+    if is_kb_tool(name):
+        return call_kb_tool(name, arguments)
+    return await _call_onshape_tool(name, arguments)
+
+
+@app.list_resources()
+async def list_resources() -> list[types.Resource]:
+    return [
+        types.Resource(uri=uri, name=name, description=desc, mimeType=mime)
+        for uri, (name, desc, _file, mime) in KB_RESOURCES.items()
+    ]
+
+
+@app.read_resource()
+async def read_resource(uri: str) -> str:
+    uri = str(uri)
+    if uri in KB_RESOURCES:
+        return read_kb_resource(uri)
+    raise ValueError(f"Unknown resource: {uri}")
+
+
+@app.list_prompts()
+async def list_prompts() -> list[types.Prompt]:
+    return [
+        types.Prompt(
+            name=name,
+            description=desc,
+            arguments=[types.PromptArgument(name=a, required=True) for a in arg_names],
+        )
+        for name, (desc, arg_names) in KB_PROMPTS.items()
+    ]
+
+
+@app.get_prompt()
+async def get_prompt(name: str, arguments: dict | None = None) -> types.GetPromptResult:
+    args = arguments or {}
+    if name not in KB_PROMPTS:
+        raise ValueError(f"Unknown prompt: {name}")
+    if name == "work_on_subsystem":
+        text = subsystem_prompt(None, args.get("robot", ""), args.get("subsystem", ""))
+    else:
+        text = whole_robot_prompt(None, args.get("robot", ""))
+    return types.GetPromptResult(
+        description=KB_PROMPTS[name][0],
+        messages=[
+            types.PromptMessage(
+                role="user", content=types.TextContent(type="text", text=text)
+            )
+        ],
+    )
 
 
 async def main_stdio():

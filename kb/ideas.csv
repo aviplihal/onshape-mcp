@@ -1,0 +1,68 @@
+id,mechanism,text,tags,seen_in,source
+i-3e20db08,arm,A box-tube arm on two torque servos gives long reach without a motor port.,,cb-986b112f37ffc7b6a9a148dd,robots
+i-4a095749,arm,"Build a telescoping box-tube arm on small bearings for a long, stiff reach.",,cb-06c0c40a16700e096c4925ce,robots
+i-7cd2166a,claw,Put a small turret under the intake claw so samples can be picked at any angle without turning the robot.,,cb-1251b706b26e366c8ec473c1,robots
+i-8a8ca03d,claw,"Use a differential wrist: two servos through bevel gears give pitch and roll, and both share the load.",,cb-b45812c85d21023efcbf09db,robots
+i-9d66600f,claw,Put a color sensor in the intake claw so the robot can reject wrong-color samples right away.,,cb-18cc9d3a13c866836698a83a;cb-1c128ca169fe30eeb09acb36,robots
+i-ae71c4d2,claw,"Use an Axon Micro for a tiny, light claw at the end of a long arm.",,cb-7e3e404d5c332fdb8d5eafbe,robots
+i-d6c089b1,claw,Reuse a proven open-source claw design on your own extension instead of designing one from scratch.,,cb-18cc9d3a13c866836698a83a,robots
+i-0bea612f,drivetrain,Mix omni corner wheels with center traction wheels for easy turning that resists side pushes.,,cb-ca4657319b95ef72f9074b9e,robots
+i-123d4afa,drivetrain,"Mount drive motors inboard and belt-drive each mecanum wheel, so the wheel pods stay narrow and protected.",,cb-3c64272b9f6ee02d003cadb8;cb-b45812c85d21023efcbf09db,robots
+i-1333f5bc,drivetrain,Single-stage 9t pinion to 108t gear gives 12:1 on bare 6000 rpm motors with no gearbox.,,cb-374cd425e3bf5a9555f301d2;cb-88715d86e064c7229dffea91,robots
+i-4cb1130f,drivetrain,Make wood copies of laser-cut side plates first to test the layout before cutting aluminum.,,cb-cf533bb8c8240c95e41a2fee,robots
+i-571c7124,drivetrain,Use an optical tracking sensor (OTOS) for odometry instead of dead-wheel pods to save space.,,cb-e364eb81a211d8677faa51ee,robots
+i-5798dca5,drivetrain,Gear fast 1150 rpm drive motors down with a 16T to 42T belt so the robot keeps torque without a new gearbox.,,cb-f5fefb77593ae89a9610f6e3,robots
+i-99db9c3a,drivetrain,Mount drive wheels on dead axles and belt-drive them so the motors carry no side load.,,cb-a6c8b6ab5653c8c43858de66,robots
+i-9bc4989a,drivetrain,"Mount drive motors in pairs on one plate per side, so each half of the drivetrain comes out as a module.",,cb-4dd01dd6042d4fc462d78595,robots
+i-a6cfedd4,drivetrain,"Steer coaxial swerve modules with Axon Mini servos on belts, so steering uses no motor ports.",,cb-c021b03986672773c2100272,robots
+i-ce1aec38,drivetrain,Add polycarbonate outer plates over exposed drive gears to keep game pieces and fingers out.,,cb-88715d86e064c7229dffea91,robots
+i-d052abab,drivetrain,"Lay drive motors flat and turn them through miter gears into belts, freeing the space between the side plates.",,cb-739cbc37d8c0f0ad7b95c0eb,robots
+i-dab73616,drivetrain,Stack UltraPlanetary cartridges (4:1 × 5:1) to pick a drive ratio without buying new gearboxes.,,ov-d66e428ea5bdfea5f78e1178,robots
+i-e90c5159,hang,"A motor-driven tape measure makes a light, long-reach hang.",,ov-84457a80136c5bcb36868f22,robots
+i-06fd1035,intake,Drive intakes at both ends of the robot from one motor with long belts along the side.,,cb-eac524bc050f71647f3350ea,robots
+i-0702e721,intake,Use small Rotacaster omni wheels on the intake so game pieces slide in sideways.,,cb-e61e709112233f8e702d98b8,robots
+i-216a60d8,intake,Use a 6000 rpm motor directly on the intake for a fast pickup without a gearbox.,,cb-02776f9cf6799ddf7b5ab70c,robots
+i-3fba6b67,intake,A servo-tilted ramp between intake and turret lets the robot hold balls or feed them on demand.,,cb-c021b03986672773c2100272,robots
+i-4697c385,intake,Turn a compliant wheel at each front corner through bevel gears so balls are pulled in from the sides too.,,cb-4dd01dd6042d4fc462d78595,robots
+i-6176dbbe,intake,Intakes at the front and back on separate motors let the robot collect while driving either way.,,cb-739cbc37d8c0f0ad7b95c0eb,robots
+i-699789a0,intake,"Split the intake into a front compliant-wheel stage and a separately powered middle stage, so balls keep moving into storage.",,cb-c9732b32d607504aef03ea69,robots
+i-69e1b550,intake,Turn intake power 90° with a 2:1 bevel set so the motor lies along the side and the roller spans the full width.,,cb-739cbc37d8c0f0ad7b95c0eb,robots
+i-7d8f5a4d,intake,Extend a horizontal slide with a side linkage instead of belts or string.,,ov-84457a80136c5bcb36868f22,robots
+i-8ab53fea,intake,Use IR break-beam sensors in the intake to know the moment a sample is in.,,cb-a6c8b6ab5653c8c43858de66,robots
+i-c3d55279,intake,Carry artifacts on a plastic-chain conveyor with small wheels between the intake and the launcher.,,cb-61ec43f7ba5c46386ea116b5,robots
+i-ebfb6f84,intake,Gear the intake pivot servos up (48T to 80T) for more torque when slamming the intake down.,,ov-ae5ff79658ff2a51ece82558,robots
+i-ec11e896,intake,Ten compliant wheels on one long shaft make a cheap full-width intake for 7 cm balls.,,cb-374cd425e3bf5a9555f301d2;cb-4dd01dd6042d4fc462d78595,robots
+i-3dbd5343,other,Build a clip loader so the robot turns samples into specimens itself.,,cb-fd162b349fb5da1163ee2a2f,robots
+i-69b5340e,other,Use distance sensors on both sides to square up to the wall before scoring specimens.,,cb-1251b706b26e366c8ec473c1,robots
+i-99c6b80e,other,Deploy a servo brace (floor brake pad or kickstand) so the robot can't be pushed off its aim while shooting.,,cb-61013b9bccef8a9e7eb0381e;cb-eac524bc050f71647f3350ea,robots
+i-25b146e7,power_transmission,Lock a drive-powered hang with a ratchet so the robot stays up when power is cut.,,cb-986b112f37ffc7b6a9a148dd,robots
+i-5f5cccb8,power_transmission,Use a servo-shifted PTO in the drivetrain so the drive motors also power the climb.,,cb-18cc9d3a13c866836698a83a;cb-61013b9bccef8a9e7eb0381e;cb-06c0c40a16700e096c4925ce,robots
+i-8f7154c6,power_transmission,Swing a gear into mesh on a servo arm to make a simple PTO without a dog clutch.,,cb-e364eb81a211d8677faa51ee,robots
+i-12c07235,shooter,Add a separate flywheel mass on the shooter shaft so wheel speed drops less between shots.,,cb-374cd425e3bf5a9555f301d2;cb-3c64272b9f6ee02d003cadb8;cb-4dd01dd6042d4fc462d78595;cb-739cbc37d8c0f0ad7b95c0eb,robots
+i-52cd0e75,shooter,Drive one flywheel shaft with two motors through 1:1 belts for faster spin-up and recovery.,,cb-02776f9cf6799ddf7b5ab70c;cb-02ded48c13b55e27c73f95d4;cb-3c64272b9f6ee02d003cadb8;cb-61013b9bccef8a9e7eb0381e;cb-61ec43f7ba5c46386ea116b5;cb-739cbc37d8c0f0ad7b95c0eb;cb-c021b03986672773c2100272;cb-c9732b32d607504aef03ea69,robots
+i-5fead781,shooter,"Belt the counter roller off the flywheel shaft: one motor drives both, their speeds stay locked, and a motor is saved.",,cb-374cd425e3bf5a9555f301d2;cb-739cbc37d8c0f0ad7b95c0eb,robots
+i-c55e4bfc,shooter,Line the counter roller with surgical tubing so it grips the ball without a separate wheel.,,cb-4dd01dd6042d4fc462d78595,robots
+i-e85480e4,shooter,Move the hood with a servo through a gear sector so the shot angle can change with distance.,,cb-c021b03986672773c2100272,robots
+i-ace2f23e,slide,Lift vertical slides with dual-spool winch pulleys so one spool pulls up and the other pulls down.,,cb-e61e709112233f8e702d98b8,robots
+i-e83761ac,slide,"Use MGN9 linear rails instead of slides for a stiff, compact lift that can't twist.",,cb-e364eb81a211d8677faa51ee;cb-ce604d35757321522214511f,robots
+i-fb7fd38a,slide,Mount the horizontal slides inside the drivetrain subassembly so the frame takes the slide loads directly.,,cb-1251b706b26e366c8ec473c1,robots
+i-16a4c3e0,transfer,Give each storage slot its own servo kicker so balls can be fired in any color order.,,cb-02776f9cf6799ddf7b5ab70c;cb-3c64272b9f6ee02d003cadb8,robots
+i-489f06d6,transfer,Laser distance sensors in storage count balls without depending on color.,,cb-739cbc37d8c0f0ad7b95c0eb,robots
+i-620b30bb,transfer,Add a separate feeder roller stage between the indexer and the shooter to control when each shot fires.,,cb-f5fefb77593ae89a9610f6e3,robots
+i-75ed8769,transfer,Put color sensors along the storage ramp to know the order of stored pieces and sort them before the shooter.,,cb-374cd425e3bf5a9555f301d2;cb-02776f9cf6799ddf7b5ab70c,robots
+i-90e8105b,transfer,A spindexer (rotating three-slot indexer under the shooter) with color sensors lets the robot fire balls in a chosen color order.,,cb-eac524bc050f71647f3350ea;cb-f5fefb77593ae89a9610f6e3,robots
+i-9b683b09,transfer,An IR break-beam array across the storage counts balls without needing color sensors.,,cb-61013b9bccef8a9e7eb0381e,robots
+i-a66d76d6,transfer,Pair two color sensors per storage slot so artifact color reads reliably wherever the ball sits.,,cb-3c64272b9f6ee02d003cadb8,robots
+i-b781c031,transfer,"Put color sensors on the turret base looking down into the spindexer slots, so the robot knows each ball's color.",,cb-eac524bc050f71647f3350ea,robots
+i-ece2fea8,transfer,A curved center ramp with one powered wheel lifts balls from the intake to the shooter in a single stage.,,cb-02ded48c13b55e27c73f95d4,robots
+i-fca7d7de,transfer,Surgical-tubing rollers along an inclined ramp carry balls from the intake up to the turret.,,cb-374cd425e3bf5a9555f301d2,robots
+i-115201ad,turret,Turn the turret on a large ring gear (205T driven by 60T) for fine aiming resolution from a small actuator.,,cb-c9732b32d607504aef03ea69,robots
+i-25233dc2,turret,Build the turret frame from carbon-fiber tubes and printed mounts to keep weight off the turret bearing.,,cb-c021b03986672773c2100272,robots
+i-27668563,turret,"Turn the turret through helical or herringbone gears (e.g. 32T to 160T) for smooth, low-backlash aiming.",,cb-61013b9bccef8a9e7eb0381e;cb-61ec43f7ba5c46386ea116b5,robots
+i-2868fb99,turret,"Turn the turret with one Axon Max on a 26T pinion to a 120T ring, so the turret uses no motor port.",,cb-02ded48c13b55e27c73f95d4,robots
+i-69a8f627,turret,Route turret wires through a drag-chain ring (inner and outer wiring guides) so the turret turns without a slip ring.,,cb-739cbc37d8c0f0ad7b95c0eb,robots
+i-aeb65b62,turret,Use a thin-section ring bearing (Kaydon KA060XP0) for the turret; it is flat and leaves the middle open for balls.,,cb-739cbc37d8c0f0ad7b95c0eb,robots
+i-c640e20f,turret,Mount the Limelight on the turret so the camera turns with the shooter and stays on the goal.,,cb-4dd01dd6042d4fc462d78595;cb-f5fefb77593ae89a9610f6e3,robots
+i-d4ee9ad8,turret,Belt-drive the turret with a big HTD5 belt around it; the ratio is easy to change and backlash is low.,,cb-f5fefb77593ae89a9610f6e3,robots
+i-ed40334e,turret,"Gang three servos onto one turret ring gear for a fast, strong turret without using a motor port.",,cb-739cbc37d8c0f0ad7b95c0eb,robots
+i-f15e0e00,turret,Drive the turret with two servos and read position from an absolute encoder instead of using a motor slot.,,cb-374cd425e3bf5a9555f301d2;cb-c021b03986672773c2100272,robots
